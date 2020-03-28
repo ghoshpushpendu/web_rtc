@@ -95,6 +95,7 @@
 
     function render() {
         var list = '';
+        console.log(user)
         users.forEach(function (user) {
             list += <a>` + user + ` <input type="button" style="float:right;" value="Call" onclick="callUser('` + user + `')"
                 id="makeCall" /></a>

@@ -132,7 +132,7 @@
                     document.getElementById("selfview").src = stream;
                 }
                 toggleEndCallButton();
-                caller.addStream(stream);
+                caller.addTrack(stream);
                 localUserMedia = stream;
                 caller.createOffer().then(function (desc) {
                     caller.setLocalDescription(new RTCSessionDescription(desc));

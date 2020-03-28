@@ -210,12 +210,12 @@
                 .then(stream => {
                     localUserMedia = stream;
                     toggleEndCallButton();
-                    if (window.URL) {
-                        document.getElementById("selfview").srcObject = evt.stream;
-                    } else {
-                        document.getElementById("selfview").src = stream;
-                    }
-                    caller.addTrack(stream);
+                    let video = document.querySelector('#remoteview');
+                    video.srcObject = stream;
+                    video.onloadedmetadata = function (e) {
+                        video.play();
+                    };
+                    caller.addStream(stream);
                     var sessionDesc = new RTCSessionDescription(msg.sdp);
                     caller.setRemoteDescription(sessionDesc);
                     caller.createAnswer().then(function (sdp) {

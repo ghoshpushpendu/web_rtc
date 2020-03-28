@@ -86,12 +86,9 @@
         };
         //onaddstream handler to receive remote feed and show in remoteview video element
         caller.onaddstream = function (evt) {
-            console.log("onaddstream called");
-            if (window.URL) {
-                document.getElementById("remoteview").srcObject = evt.stream;
-            } else {
-                document.getElementById("remoteview").src = evt.stream;
-            }
+            console.log("onaddstream called", evt);
+            document.getElementById("remoteview").srcObject = evt.stream;
+
         };
     }
     function getCam() {
@@ -125,7 +122,7 @@
     function callUser(user) {
         getCam()
             .then(stream => {
-                // console.log(stream, window, window.URL)
+                console.log(stream, window, window.URL)
                 let video = document.querySelector('#selfview');
                 video.srcObject = stream;
                 video.onloadedmetadata = function (e) {
@@ -190,7 +187,7 @@
 
     //Listening for the candidate message from a peer sent from onicecandidate handler
     channel.bind("client-candidate", function (msg) {
-        console.log("MSG",msg)
+        console.log("MSG", msg)
         if (msg.room == room) {
             console.log("candidate received");
             caller.addIceCandidate(new RTCIceCandidate(msg.candidate));
@@ -211,7 +208,7 @@
                 .then(stream => {
                     localUserMedia = stream;
                     toggleEndCallButton();
-                    let video = document.querySelector('#remoteview');
+                    let video = document.querySelector('#selfview');
                     video.srcObject = stream;
                     video.onloadedmetadata = function (e) {
                         video.play();

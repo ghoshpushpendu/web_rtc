@@ -126,13 +126,13 @@
         getCam()
             .then(stream => {
                 // console.log(stream, window, window.URL)
-                if (window.URL) {
-                    document.getElementById("selfview").src = stream;
-                } else {
-                    document.getElementById("selfview").src = stream;
-                }
+                let video = document.querySelector('#selfview');
+                video.srcObject = stream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
                 toggleEndCallButton();
-                caller.addTrack(stream);
+                caller.addStream(stream);
                 localUserMedia = stream;
                 caller.createOffer().then(function (desc) {
                     caller.setLocalDescription(new RTCSessionDescription(desc));

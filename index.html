@@ -193,7 +193,7 @@
         console.log("MSG",msg)
         if (msg.room == room) {
             console.log("candidate received");
-            caller.addIceCandidate(msg.candidate);
+            caller.addIceCandidate(new RTCIceCandidate(msg.candidate));
         }
     });
 

@@ -215,7 +215,7 @@
                     } else {
                         document.getElementById("selfview").src = stream;
                     }
-                    caller.addStream(stream);
+                    caller.addTrack(stream);
                     var sessionDesc = new RTCSessionDescription(msg.sdp);
                     caller.setRemoteDescription(sessionDesc);
                     caller.createAnswer().then(function (sdp) {

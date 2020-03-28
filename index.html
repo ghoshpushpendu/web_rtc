@@ -3,8 +3,28 @@
 
 <head>
     <title>WebRTC Audio/Video-Chat</title>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
+<style>
+    .list-group {
+
+        margin: auto;
+        float: left;
+        padding-top: 20px;
+    }
+
+    .lead {
+
+        margin: auto;
+        left: 0;
+        right: 0;
+        padding-top: 10%;
+    }
+</style>
 
 <body>
     <div id="app">
@@ -12,10 +32,20 @@
         <video id="selfview" autoplay muted></video>
         <video id="remoteview" autoplay></video>
         <button id="endCall" style="display: none;" onclick="endCurrentCall()">End Call </button>
-        <div id="list">
+        <!-- <div id="list">
             <ul id="users">
 
             </ul>
+        </div> -->
+        <div class="list-group">
+
+            <a href="#" class="list-group-item active"><i class="fa fa-key"></i> <span>User's List</span></a>
+            <a href="#" class="list-group-item"><i class="fa fa-credit-card"></i> <span>Billing</span></a>
+            <div id="users">
+
+            </div>
+            <!-- <a>` + user + ` <input type="button" style="float:right;" value="Call" onclick="callUser('` + user + `')"
+                    id="makeCall" /></a> -->
         </div>
     </div>
 </body>
@@ -66,7 +96,8 @@
     function render() {
         var list = '';
         users.forEach(function (user) {
-            list += `<li>` + user + ` <input type="button" style="float:right;"  value="Call" onclick="callUser('` + user + `')" id="makeCall" /></li>`
+            list += <a>` + user + ` <input type="button" style="float:right;" value="Call" onclick="callUser('` + user + `')"
+                id="makeCall" /></a>
         })
         document.getElementById('users').innerHTML = list;
     }

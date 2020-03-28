@@ -190,6 +190,7 @@
 
     //Listening for the candidate message from a peer sent from onicecandidate handler
     channel.bind("client-candidate", function (msg) {
+        console.log("MSG",msg)
         if (msg.room == room) {
             console.log("candidate received");
             caller.addIceCandidate(new RTCIceCandidate(msg.candidate));

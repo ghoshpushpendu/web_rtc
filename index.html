@@ -20,15 +20,31 @@
     .lead {
 
         margin: auto;
-        left: 0;
+        left: 5;
         right: 0;
-        padding-top: 10%;
+        padding-top: 5%;
+    }
+
+    #remoteview {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        left: 32%;
+        height: 90%;
+    }
+
+    #selfview {
+        height: 176px;
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 99999999;
     }
 </style>
 
 <body>
     <div id="app">
-        <span id="myid"> </span>
+        <!-- <span id="myid"> </span> -->
         <video id="selfview" autoplay muted></video>
         <video id="remoteview" autoplay></video>
         <button id="endCall" style="display: none;" onclick="endCurrentCall()">End Call </button>
@@ -39,8 +55,8 @@
         </div> -->
         <div class="list-group">
 
-            <a href="#" class="list-group-item active"><i class="fa fa-key"></i> <span>User's List</span></a>
-            <a href="#" class="list-group-item"><i class="fa fa-credit-card"></i> <span>Billing</span></a>
+            <a href="#" class="list-group-item active"><i class="fa fa-key"></i> <span id="myid"> </span></a>
+            <!-- <a href="#" class="list-group-item"><i class="fa fa-credit-card"></i> <span>Billing</span></a> -->
             <div id="users">
 
             </div>

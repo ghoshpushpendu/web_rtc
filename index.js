@@ -35,7 +35,9 @@ app.post('/pusher/auth', (req, res) => {
         res.send(auth);
 });
 
+const PORT = process.env.PORT || 3000;
+
 //listen on the app
-app.listen(3000, () => {
+app.listen(PORT, () => {
     return console.log('Server is up on 3000')
 });

@@ -3,10 +3,10 @@
 
 <head>
     <title>WebRTC Audio/Video-Chat</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
         type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <style>
@@ -95,7 +95,6 @@
 
     function render() {
         var list = '';
-        console.log(user)
         users.forEach(function (user) {
             list += `<a>` + user + ` <input type="button" style="float:right;" value="Call" onclick="callUser('` + user + `')"
                 id="makeCall" /></a>`;

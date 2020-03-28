@@ -125,9 +125,9 @@
     function callUser(user) {
         getCam()
             .then(stream => {
-                console.log(stream,window,window.URL)
+                // console.log(stream, window, window.URL)
                 if (window.URL) {
-                    document.getElementById("selfview").src = window.URL.createObjectURL(stream);
+                    document.getElementById("selfview").src = stream;
                 } else {
                     document.getElementById("selfview").src = stream;
                 }
